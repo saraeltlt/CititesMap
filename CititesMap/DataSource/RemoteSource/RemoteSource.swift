@@ -1,11 +1,11 @@
 //
-//  APIClient.swift
+//  RemoteSource.swift
 //  CititesMap
 //
 //  Created by Sara Eltlt on 09/08/2023.
 //
 
 import Foundation
-class APIClient: APIClientProtocol {
+class RemoteSource: RemoteSourceProtocol {
     
 }
