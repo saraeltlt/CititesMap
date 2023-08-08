@@ -6,3 +6,8 @@
 //
 
 import Foundation
+struct Constants {
+     static let baseURL = "https://assignment.pharos-solutions.de/cities.json?page="
+    
+
+}

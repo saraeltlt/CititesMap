@@ -29,6 +29,9 @@
 		8F2921A42A82F033002BFDFF /* CityRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2921A32A82F033002BFDFF /* CityRepositoryProtocol.swift */; };
 		8F2921A62A82F48E002BFDFF /* RemoteSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2921A52A82F48E002BFDFF /* RemoteSourceProtocol.swift */; };
 		8F462CAF2A82F6E100BC02B5 /* LocalSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CAE2A82F6E100BC02B5 /* LocalSourceProtocol.swift */; };
+		8F462CB12A8303CA00BC02B5 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CB02A8303CA00BC02B5 /* Constants+Identifiers.swift */; };
+		8F462CB92A83061E00BC02B5 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CB72A83061E00BC02B5 /* CityCell.swift */; };
+		8F462CBA2A83061E00BC02B5 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F462CB82A83061E00BC02B5 /* CityCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		8F2921A32A82F033002BFDFF /* CityRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepositoryProtocol.swift; sourceTree = "<group>"; };
 		8F2921A52A82F48E002BFDFF /* RemoteSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSourceProtocol.swift; sourceTree = "<group>"; };
 		8F462CAE2A82F6E100BC02B5 /* LocalSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSourceProtocol.swift; sourceTree = "<group>"; };
+		8F462CB02A8303CA00BC02B5 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
+		8F462CB72A83061E00BC02B5 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		8F462CB82A83061E00BC02B5 /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 		8F29217F2A82E689002BFDFF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8F462CB62A83055800BC02B5 /* CityTableViewCell */,
 				8F29218C2A82E79D002BFDFF /* CitiesViewController.swift */,
 				8F29219E2A82E9AB002BFDFF /* CitiesList.storyboard */,
 			);
@@ -290,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				8F2921992A82E84E002BFDFF /* Constants.swift */,
+				8F462CB02A8303CA00BC02B5 /* Constants+Identifiers.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -300,6 +308,15 @@
 				8F29219B2A82E900002BFDFF /* NetworkMonitor.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8F462CB62A83055800BC02B5 /* CityTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8F462CB72A83061E00BC02B5 /* CityCell.swift */,
+				8F462CB82A83061E00BC02B5 /* CityCell.xib */,
+			);
+			path = CityTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F2921532A82E5B0002BFDFF /* LaunchScreen.storyboard in Resources */,
+				8F462CBA2A83061E00BC02B5 /* CityCell.xib in Resources */,
 				8F2921A12A82E9C2002BFDFF /* CityMap.storyboard in Resources */,
 				8F29219F2A82E9AB002BFDFF /* CitiesList.storyboard in Resources */,
 				8F2921502A82E5B0002BFDFF /* Assets.xcassets in Resources */,
@@ -438,12 +456,14 @@
 				8F2921942A82E7DC002BFDFF /* CityMapViewModel.swift in Sources */,
 				8F462CAF2A82F6E100BC02B5 /* LocalSourceProtocol.swift in Sources */,
 				8F2921442A82E5AE002BFDFF /* AppDelegate.swift in Sources */,
+				8F462CB12A8303CA00BC02B5 /* Constants+Identifiers.swift in Sources */,
 				8F2921862A82E6DC002BFDFF /* City.swift in Sources */,
 				8F29217C2A82E63A002BFDFF /* RemoteSource.swift in Sources */,
 				8F2921922A82E7CE002BFDFF /* CityMapViewController.swift in Sources */,
 				8F29214E2A82E5AE002BFDFF /* CititesMap.xcdatamodeld in Sources */,
 				8F29218F2A82E7AB002BFDFF /* CitiesViewModel.swift in Sources */,
 				8F29219C2A82E900002BFDFF /* NetworkMonitor.swift in Sources */,
+				8F462CB92A83061E00BC02B5 /* CityCell.swift in Sources */,
 				8F29218D2A82E79D002BFDFF /* CitiesViewController.swift in Sources */,
 				8F2921462A82E5AE002BFDFF /* SceneDelegate.swift in Sources */,
 				8F2921A62A82F48E002BFDFF /* RemoteSourceProtocol.swift in Sources */,
