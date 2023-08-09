@@ -40,12 +40,18 @@ extension CitiesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return citiesViewModel?.getCitiesCount() ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:Constants.Identifiers.cityCell,
-                                                 for: indexPath) as? CityCell
-        guard let cell = cell else { return CityCell()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.cityCell, for: indexPath) as! CityCell
         let cityName = citiesViewModel?.getCityName(index: indexPath.row) ?? ""
         cell.configure(cityName: cityName, data: nil)
+        
+        citiesViewModel?.getCityImage(index: indexPath.row) { imageStatic in
+            DispatchQueue.main.async {
+                cell.configure(cityName: cityName, data: imageStatic)
+            }
+        }
+        
         return cell
     }
     

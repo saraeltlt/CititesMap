@@ -49,6 +49,22 @@ class CitiesViewModel {
         return citiesArray.count
     }
     func getCityName(index: Int) -> String {
-        return "\(citiesArray[index].country), \(citiesArray[index].name)"
+       return "\(citiesArray[index].country), \(citiesArray[index].name)"
     }
+    
+    func getCityImage(index: Int, completion: @escaping ((Data?) -> Void)) {
+        let x = RemoteSource()
+        
+        x.staticMapURL(latitude: Double(citiesArray[index].coord.lat) ?? 0.0,
+                       longitude: Double(citiesArray[index].coord.lon) ?? 0.0) { (result: Result<Data, Error>) in
+            switch result {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                print("ERRORRRR \(error)")
+                completion(nil)
+            }
+        }
+    }
+
 }
