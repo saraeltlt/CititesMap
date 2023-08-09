@@ -18,8 +18,10 @@ class CitiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        view.addGestureRecognizer(tapGesture)
         
-
+ // for test only
        let x = RemoteSource()
         x.fetchAPICities(page: 1) { (cities: Result<[City], Error>) in
             switch cities {
@@ -29,7 +31,7 @@ class CitiesViewController: UIViewController {
                 print ("ERROR \(error.localizedDescription)")
             }
         }
-        
+//...
         
     }
     
@@ -42,6 +44,19 @@ class CitiesViewController: UIViewController {
 }
 // MARK: - Search Handling
 extension CitiesViewController: UISearchBarDelegate {
+    
+    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let _ = searchBar.text else {return}
+        searchBar.resignFirstResponder()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //perform search
+        print("perform search with \(searchText)")
+    }
 
 }
 // MARK: - Table View
