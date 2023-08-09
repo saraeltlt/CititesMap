@@ -20,15 +20,15 @@ class CitiesViewController: UIViewController {
         initTableView()
         
 
-      /*  let x = RemoteSource()
-        x.fetchAPICities(page: 1) { (cities: Result<[CityResponse], Error>) in
+       let x = RemoteSource()
+        x.fetchAPICities(page: 1) { (cities: Result<[City], Error>) in
             switch cities {
             case .success(let responseData):
                 print("SUCCESS \(responseData.count)")
             case .failure(let error):
                 print ("ERROR \(error.localizedDescription)")
             }
-        }*/
+        }
         
         
     }

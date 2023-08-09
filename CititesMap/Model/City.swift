@@ -8,8 +8,9 @@
 import Foundation
 // MARK: - city response
 struct City: Codable {
-    let country, name: String
-    let id: Int
+    let country: String
+    let name: String
+    let id: String
     let coord: Coord
 
     enum CodingKeys: String, CodingKey {
@@ -21,6 +22,6 @@ struct City: Codable {
 
 // MARK: - Coordinates
 struct Coord: Codable {
-    let lon: Double
-    let lat: Double
+    let lon: String
+    let lat: String
 }

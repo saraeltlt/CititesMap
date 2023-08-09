@@ -18,7 +18,9 @@ class CityMapViewModel {
         return "\(city.country), \(city.name)"
     }
     func getCityCoord() -> (Double,Double) {
-        return (city.coord.lat,city.coord.lon)
+        let lat = Double (city.coord.lat) ?? 0.0
+        let lon = Double (city.coord.lon) ?? 0.0
+        return (lat,lon)
     }
     
 }

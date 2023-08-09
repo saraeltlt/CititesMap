@@ -7,7 +7,7 @@
 
 import UIKit
 struct Constants {
-    static let CitiesBaseURL = "https://assignment.pharos-solutions.de/cities.json?page="
+    static let CitiesBaseURL = "http://assignment.pharos-solutions.de/cities.json?page="
     static let mapsImageApiKey = ""
 
     struct Images {
