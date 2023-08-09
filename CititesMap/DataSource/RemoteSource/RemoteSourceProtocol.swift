@@ -7,5 +7,5 @@
 
 import Foundation
 protocol RemoteSourceProtocol {
-    func fetchAPICities(page: Int, completion: @escaping (Result<[CityResponse], Error>) -> Void)
+    func fetchAPICities(page: Int, completion: @escaping (Result<[City], Error>) -> Void)
 }

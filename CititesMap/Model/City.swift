@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - city response
-struct CityResponse: Codable {
+struct City: Codable {
     let country, name: String
     let id: Int
     let coord: Coord

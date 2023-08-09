@@ -8,8 +8,8 @@
 import Foundation
 class RemoteSource: RemoteSourceProtocol {
 
-    func fetchAPICities(page: Int, completion: @escaping (Result<[CityResponse], Error>) -> Void) {
-        let urlString = Constants.baseURL + String(page)
+    func fetchAPICities(page: Int, completion: @escaping (Result<[City], Error>) -> Void) {
+        let urlString = Constants.CitiesBaseURL + String(page)
         print("MY URL \(urlString)")
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
@@ -24,7 +24,7 @@ class RemoteSource: RemoteSourceProtocol {
             
             if let data = data {
                 do {
-                    let cities = try JSONDecoder().decode([CityResponse].self, from: data)
+                    let cities = try JSONDecoder().decode([City].self, from: data)
                     completion(.success(cities))
                 } catch {
                     completion(.failure(error))

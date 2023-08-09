@@ -17,6 +17,6 @@ extension Constants {
         
         static let CitiesVC = "CitiesViewController"
         
-        static let CityMapVC = "CityMapViewController"
+        static let cityMapVC = "CityMapViewController"
     }
 }

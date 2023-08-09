@@ -6,24 +6,50 @@
 //
 
 import UIKit
+import MapKit
 
 class CityMapViewController: UIViewController {
-
+    // MARK: - Outlits
+    @IBOutlet private weak var cityNameLabel: UILabel!
+    @IBOutlet private  weak var cityMapView: MKMapView!
+    
+    // MARK: - Variable
+    private var cityName: String?
+    private var cityLat: Double?
+    private var cityLon: Double?
+    var mapViewModel: CityMapViewModel?
+    
+    // MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setCityData()
+        setMap()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - setCityData
+    private func setCityData() {
+        guard let mapViewModel = mapViewModel else {return}
+        cityName = mapViewModel.getCityName()
+        cityLat = mapViewModel.getCityCoord().0
+        cityLon = mapViewModel.getCityCoord().1
+        cityNameLabel.text = cityName
     }
-    */
+    // MARK: - setMap
+    private func setMap() {
+        guard let cityLat = cityLat, let cityLon = cityLon else {return}
 
+        let cityCoordinate = CLLocationCoordinate2D(latitude: cityLat, longitude: cityLon)
+        
+        // centered map view
+        let region = MKCoordinateRegion(center: cityCoordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        cityMapView.setRegion(region, animated: true)
+        
+        // map annotation
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = cityCoordinate
+        
+        //set title
+        annotation.title = cityName
+        cityMapView.addAnnotation(annotation)
+    }
 }

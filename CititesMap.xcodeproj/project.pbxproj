@@ -32,6 +32,7 @@
 		8F462CB12A8303CA00BC02B5 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CB02A8303CA00BC02B5 /* Constants+Identifiers.swift */; };
 		8F462CB92A83061E00BC02B5 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CB72A83061E00BC02B5 /* CityCell.swift */; };
 		8F462CBA2A83061E00BC02B5 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F462CB82A83061E00BC02B5 /* CityCell.xib */; };
+		8F462CBC2A8317D800BC02B5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F462CBB2A8317D800BC02B5 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		8F462CB02A8303CA00BC02B5 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
 		8F462CB72A83061E00BC02B5 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		8F462CB82A83061E00BC02B5 /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
+		8F462CBB2A8317D800BC02B5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				8F29219B2A82E900002BFDFF /* NetworkMonitor.swift */,
+				8F462CBB2A8317D800BC02B5 /* Observable.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				8F2921942A82E7DC002BFDFF /* CityMapViewModel.swift in Sources */,
 				8F462CAF2A82F6E100BC02B5 /* LocalSourceProtocol.swift in Sources */,
 				8F2921442A82E5AE002BFDFF /* AppDelegate.swift in Sources */,
+				8F462CBC2A8317D800BC02B5 /* Observable.swift in Sources */,
 				8F462CB12A8303CA00BC02B5 /* Constants+Identifiers.swift in Sources */,
 				8F2921862A82E6DC002BFDFF /* City.swift in Sources */,
 				8F29217C2A82E63A002BFDFF /* RemoteSource.swift in Sources */,

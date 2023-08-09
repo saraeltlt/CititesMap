@@ -12,6 +12,7 @@ class CitiesViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var imagePlaceHolder: UIImageView!
     @IBOutlet private weak var citiesTableView: UITableView!
+    let citiesViewModel = CitiesViewModel()
     
     // MARK: - viewController life cycle
     override func viewDidLoad() {
@@ -62,6 +63,13 @@ extension CitiesViewController: UITableViewDelegate {
     // navigate to map
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("SELECTED")
+        guard let navigationController = navigationController else { return }
+        let storyboard = UIStoryboard(name: Constants.Identifiers.CityMapStroyBoard, bundle: nil)
+        let viewControllerID = Constants.Identifiers.cityMapVC
+        guard let cityMapVC = storyboard
+            .instantiateViewController(withIdentifier: viewControllerID) as? CityMapViewController else { return }
+        cityMapVC.mapViewModel = citiesViewModel.navigateToMap(index: indexPath.row)
+        navigationController.pushViewController(cityMapVC, animated: true)
     }
 }
 extension CitiesViewController: UITableViewDataSource {
