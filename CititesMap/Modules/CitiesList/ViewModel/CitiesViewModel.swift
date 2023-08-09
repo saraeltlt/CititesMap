@@ -36,6 +36,7 @@ class CitiesViewModel {
     
     
     func navigateToMap(index: Int) -> CityMapViewModel? {
+        print ("fehhaa \(citiesArray.count)")
         if citiesArray.isEmpty {
             return nil
         } else {

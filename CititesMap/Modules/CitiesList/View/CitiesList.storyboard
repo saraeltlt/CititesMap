@@ -34,12 +34,18 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="eUi-xI-lhV"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qq7-Wl-CK9">
+                                <rect key="frame" x="178" y="435.66666666666669" width="37" height="37"/>
+                                <color key="color" systemColor="systemRedColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0iN-WV-Qev" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="7t4-fZ-SYd"/>
+                            <constraint firstItem="Qq7-Wl-CK9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="28" id="Beu-ZK-8rF"/>
                             <constraint firstItem="KPu-RT-xXA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="D0X-za-BKE"/>
+                            <constraint firstItem="Qq7-Wl-CK9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="L2L-v8-djY"/>
                             <constraint firstAttribute="bottom" secondItem="16A-TL-2GM" secondAttribute="bottom" id="Lgl-5j-Ra2"/>
                             <constraint firstItem="0iN-WV-Qev" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="PSa-jJ-vjA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0iN-WV-Qev" secondAttribute="bottom" constant="8" id="SnM-uM-Ewd"/>
@@ -55,6 +61,7 @@
                     <connections>
                         <outlet property="citiesTableView" destination="16A-TL-2GM" id="Fi6-aI-kJe"/>
                         <outlet property="imagePlaceHolder" destination="0iN-WV-Qev" id="nqv-wa-RaG"/>
+                        <outlet property="loadingIndecator" destination="Qq7-Wl-CK9" id="z7I-Cq-ZDL"/>
                         <outlet property="searchBar" destination="KPu-RT-xXA" id="rEU-4v-qE1"/>
                     </connections>
                 </viewController>
@@ -84,6 +91,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
