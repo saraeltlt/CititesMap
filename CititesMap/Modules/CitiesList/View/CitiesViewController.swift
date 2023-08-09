@@ -19,6 +19,27 @@ class CitiesViewController: UIViewController {
     // MARK: - viewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let core = LocalSource()
+        let city = City(country: "test", name: "test1", id: "123", coord: Coord(lon: "45.0", lat: "60.0"), image: Data())
+        core.saveCities([city]) { result in
+            switch result {
+            case .success:
+                print("City saved successfully.")
+                // Fetch cities using fetchCities function
+                core.fetchCities { result in
+                    switch result {
+                    case .success(let cities):
+                        print("Fetched cities: \(cities)")
+                    case .failure(let error):
+                        print("Error fetching cities: \(error)")
+                    }
+                }
+                
+            case .failure(let error):
+                print("Error saving city: \(error)")
+            }
+        }
+        
        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource(), localDataSource: LocalSource()))
         initTableView()
         setupBindings()

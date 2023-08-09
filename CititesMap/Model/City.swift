@@ -12,11 +12,13 @@ struct City: Codable {
     let name: String
     let id: String
     let coord: Coord
+    let image: Data?
 
     enum CodingKeys: String, CodingKey {
         case country, name
         case id = "_id"
         case coord
+        case image
     }
 }
 
