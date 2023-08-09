@@ -5,9 +5,15 @@
 //  Created by Sara Eltlt on 09/08/2023.
 //
 
-import Foundation
+import UIKit
 struct Constants {
-     static let baseURL = "https://assignment.pharos-solutions.de/cities.json?page="
-    
+    static let CitiesBaseURL = "https://assignment.pharos-solutions.de/cities.json?page="
+    static let mapsImageApiKey = ""
+
+    struct Images {
+        static let globeImage = UIImage(named: "img_globe")
+        
+        
+    }
 
 }

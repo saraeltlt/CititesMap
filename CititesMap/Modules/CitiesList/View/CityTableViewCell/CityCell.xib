@@ -20,19 +20,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMZ-2Q-r0j">
                         <rect key="frame" x="16" y="8" width="349" height="167"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-Fc-Ipv">
-                                <rect key="frame" x="0.0" y="0.0" width="349" height="167"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-Fc-Ipv">
+                                <rect key="frame" x="95.333333333333329" y="4" width="245.66666666666669" height="159"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NKB-mm-Qws">
+                                <rect key="frame" x="0.0" y="0.0" width="87.333333333333329" height="167"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="W1g-Fc-Ipv" secondAttribute="bottom" id="hhf-gD-oZI"/>
-                            <constraint firstItem="W1g-Fc-Ipv" firstAttribute="leading" secondItem="SMZ-2Q-r0j" secondAttribute="leading" id="jYD-EI-2sa"/>
-                            <constraint firstAttribute="trailing" secondItem="W1g-Fc-Ipv" secondAttribute="trailing" id="nZZ-Zk-nm9"/>
-                            <constraint firstItem="W1g-Fc-Ipv" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" id="vIu-Z0-Ish"/>
+                            <constraint firstAttribute="trailing" secondItem="W1g-Fc-Ipv" secondAttribute="trailing" constant="8" id="2mm-7g-5P0"/>
+                            <constraint firstItem="W1g-Fc-Ipv" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" constant="4" id="Mcd-oO-vg6"/>
+                            <constraint firstItem="W1g-Fc-Ipv" firstAttribute="leading" secondItem="NKB-mm-Qws" secondAttribute="trailing" constant="8" id="cMl-qh-22F"/>
+                            <constraint firstItem="NKB-mm-Qws" firstAttribute="width" secondItem="SMZ-2Q-r0j" secondAttribute="width" multiplier="0.25" id="cl1-E2-tfS"/>
+                            <constraint firstItem="NKB-mm-Qws" firstAttribute="leading" secondItem="SMZ-2Q-r0j" secondAttribute="leading" id="dAV-Zt-OFp"/>
+                            <constraint firstAttribute="bottom" secondItem="W1g-Fc-Ipv" secondAttribute="bottom" constant="4" id="gbI-lH-hgs"/>
+                            <constraint firstItem="NKB-mm-Qws" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" id="hIT-lI-uz2"/>
+                            <constraint firstAttribute="bottom" secondItem="NKB-mm-Qws" secondAttribute="bottom" id="vOg-c6-H6r"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -51,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityNameLabel" destination="W1g-Fc-Ipv" id="lGf-aD-fME"/>
+                <outlet property="mapImageView" destination="NKB-mm-Qws" id="Hgu-OV-Af6"/>
             </connections>
             <point key="canvasLocation" x="57.251908396946561" y="-26.408450704225352"/>
         </tableViewCell>

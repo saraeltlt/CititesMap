@@ -32,5 +32,10 @@ class RemoteSource: RemoteSourceProtocol {
             }
         }.resume()
     }
+    
+    func staticMapURL(latitude: Double, longitude: Double) -> URL? {
+        let urlString = "https://maps.googleapis.com/maps/api/staticmap?center=\(latitude),\(longitude)&zoom=12&size=100x100&key=\(Constants.mapsImageApiKey)"
+        return URL(string: urlString)
+    }
 
 }

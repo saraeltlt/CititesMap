@@ -74,7 +74,7 @@ extension CitiesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:Constants.Identifiers.cityCell,
                                                  for: indexPath) as? CityCell
         guard let cell = cell else { return CityCell()}
-        cell.configure(cityName: "City")
+        cell.configure(cityName: "City", data: nil)
         return cell
     }
     
