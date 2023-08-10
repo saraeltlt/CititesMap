@@ -17,7 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KPu-RT-xXA">
-                                <rect key="frame" x="8" y="111" width="393" height="56"/>
+                                <rect key="frame" x="8" y="111" width="377" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Uvy-0J-bEp"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="ozx-he-LWY"/>
@@ -36,7 +39,7 @@
                                 <color key="color" systemColor="systemRedColor"/>
                             </activityIndicatorView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0iN-WV-Qev">
-                                <rect key="frame" x="64" y="119" width="265" height="667"/>
+                                <rect key="frame" x="64" y="175" width="265" height="611"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </imageView>
                         </subviews>
@@ -51,10 +54,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0iN-WV-Qev" secondAttribute="trailing" constant="64" id="R5y-Wd-mJW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0iN-WV-Qev" secondAttribute="bottom" constant="32" id="SnM-uM-Ewd"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eNu-mU-HNL"/>
-                            <constraint firstItem="KPu-RT-xXA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="fc2-yB-Ure"/>
                             <constraint firstItem="KPu-RT-xXA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="gO8-7t-Isv"/>
-                            <constraint firstItem="0iN-WV-Qev" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="j0y-sC-JiF"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="top" secondItem="KPu-RT-xXA" secondAttribute="bottom" id="m5L-WD-W1u"/>
+                            <constraint firstItem="0iN-WV-Qev" firstAttribute="top" secondItem="KPu-RT-xXA" secondAttribute="bottom" constant="8" id="okZ-P8-Pem"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KPu-RT-xXA" secondAttribute="trailing" constant="8" id="uBL-5r-xNp"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xbT-bK-ImE"/>
                         </constraints>
                     </view>

@@ -80,5 +80,7 @@ class CityRepository: CityRepositoryProtocol {
             }
         }
     }
-
+     func fetchCitiesLocal(completion: @escaping (Result<[City], Error>) -> Void) {
+          localDataSource.fetchCities(completion: completion)
+     }
 }

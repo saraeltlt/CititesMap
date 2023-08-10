@@ -72,21 +72,23 @@ class CitiesViewController: UIViewController {
                     self.loadingIndecator.startAnimating()
                 } else {
                     DispatchQueue.main.async {
-                        if citiesViewModel.getCitiesCount() == 0 && !citiesViewModel.isNetworkConnected() {
+                        if citiesViewModel.getCitiesCount() == 0 &&
+                            !citiesViewModel.isSearching &&
+                            !citiesViewModel.isNetworkConnected() {
                             self.imagePlaceHolder.image = Constants.Images.noConnectionImage
                             self.imagePlaceHolder.isHidden = false
-                            self.searchBar.isHidden = true
                         } else {
                             self.imagePlaceHolder.isHidden = true
-                            self.searchBar.isHidden = false
                             self.loadingIndecator.stopAnimating()
                             self.citiesTableView.reloadData()
+                            self.updateNoSearchResultVisibility()
                         }
                     }
                 }
             }
         })
     }
+
     
 }
 // MARK: - Search Handling
@@ -101,8 +103,23 @@ extension CitiesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //perform search
-        print("perform search with \(searchText)")
+        
+        citiesViewModel?.filterCities(with: searchText)
+        
+        if searchBar.text!.isEmpty{
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
+    
+    func updateNoSearchResultVisibility() {
+        if citiesViewModel?.getCitiesCount() == 0 {
+            self.imagePlaceHolder.image = Constants.Images.noSearchImage
+            self.imagePlaceHolder.isHidden = false
+         } else {
+             self.imagePlaceHolder.isHidden = true
+         }
+     }
     
 }

@@ -11,9 +11,13 @@ class CitiesViewModel {
    // MARK: - variables
     private let repository: CityRepository
     private var citiesArray = [City]()
+   // private var toFilterArray = [City]()
+    private var filteredArray = [City]()
+    var isSearching: Bool = false
     private let networkMonitor = NetworkMonitor.shared
     let bindCities = Observable(false)
     let bindError = Observable<Error?>(nil)
+    let bindSearch = Observable(false)
     
     init(repository: CityRepository) {
         self.repository = repository
@@ -36,26 +40,61 @@ class CitiesViewModel {
             }
         }
     }
+    
+   /* func getLocalCities() {
+        repository.fetchCitiesLocal { result in
+            switch result {
+            case .success(let cities):
+                self.toFilterArray = cities
+            case .failure(let error):
+                self.bindError.value = error
+                self.toFilterArray = []
+            }
+        }
+    }*/
+    // MARK: - Filter Cities
+    func filterCities(with searchText: String) {
+        if searchText.isEmpty {
+             isSearching = false
+            filteredArray.removeAll()
+         } else {
+             isSearching = true
+             filteredArray = citiesArray.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+             print ("ANA KEDA 3andy \(filteredArray.count)")
+         }
+        self.bindCities.value = true
+    }
 
     // MARK: - Get city data
     func getCitiesCount() -> Int {
-        return citiesArray.count
+        if isSearching {
+            return filteredArray.count
+        } else {
+            return citiesArray.count
+        }
     }
 
     func getCityNameAndImage(index: Int) -> (String,Data?) {
-        let cityName = "\(citiesArray[index].country), \(citiesArray[index].name)"
-        let cityMapImage = citiesArray[index].image
-        return (cityName,cityMapImage)
+        var city: City
+        if isSearching {
+            city = filteredArray[index]
+        } else {
+            city = citiesArray[index]
+        }
+        let cityName = "\(city.country), \(city.name)"
+        let cityMapImage = city.image
+        return (cityName, cityMapImage)
     }
 
     // MARK: - Navigate to map view
     func navigateToMap(index: Int) -> CityMapViewModel? {
-        if citiesArray.isEmpty {
-            return nil
+        var city: City
+        if isSearching {
+            city = filteredArray[index]
         } else {
-            let city = citiesArray[index]
-            return CityMapViewModel(city: city)
+            city = citiesArray[index]
         }
+        return CityMapViewModel(city: city)
     }
     
     // MARK: - Get network Status
