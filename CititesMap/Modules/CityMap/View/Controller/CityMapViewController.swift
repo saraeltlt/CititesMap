@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class CityMapViewController: UIViewController {
+class CityMapViewController: BaseViewController {
     // MARK: - Outlits
     @IBOutlet private  weak var cityMapView: MKMapView!
     
@@ -23,6 +23,7 @@ class CityMapViewController: UIViewController {
         super.viewDidLoad()
         setCityData()
         setMap()
+        self.monitorConnection()
     }
     
     // MARK: - setCityData

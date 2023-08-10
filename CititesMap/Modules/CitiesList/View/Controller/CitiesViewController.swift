@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CitiesViewController: UIViewController {
+class CitiesViewController: BaseViewController {
     // MARK: - OUTLETS
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var imagePlaceHolder: UIImageView!
@@ -20,8 +20,7 @@ class CitiesViewController: UIViewController {
     // MARK: - viewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource.shared,
-                                                                     localDataSource: LocalSource.shared))
+        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource.shared, localDataSource: LocalSource.shared))
         configureNavigationBar()
         initTableView()
         setupBindings()

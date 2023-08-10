@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Table View Delegate
 extension CitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.bounds.height * 0.125
+        return self.view.bounds.height * 0.2
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -19,18 +19,32 @@ extension CitiesViewController: UITableViewDelegate {
     
     // navigate to map
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let citiesViewModel = citiesViewModel else { return }
+        
+        if (citiesViewModel.isNetworkConnected()) {
+            navigateToMap(with: indexPath.row)
+        } else {
+            let toastLabel = UILabel()
+            toastLabel.showToast(message: Constants.keyWords.noConnection,
+                                 multiline: true,
+                                 image: Constants.Images.noConnectionImage)
+        }
+ 
+        
+    }
+    // MARK: helper  function
+    private func navigateToMap(with index: Int) {
         guard let navigationController = navigationController,
               let citiesViewModel = citiesViewModel else { return }
-        
+
         let storyboard = UIStoryboard(name: Constants.Identifiers.CityMapStroyBoard, bundle: nil)
         let viewControllerID = Constants.Identifiers.cityMapVC
         
         guard let cityMapVC = storyboard
             .instantiateViewController(withIdentifier: viewControllerID) as? CityMapViewController else { return }
         
-        cityMapVC.mapViewModel = citiesViewModel.navigateToMap(index: indexPath.row)
+        cityMapVC.mapViewModel = citiesViewModel.navigateToMap(index: index)
         navigationController.pushViewController(cityMapVC, animated: true)
-        
     }
     
     
