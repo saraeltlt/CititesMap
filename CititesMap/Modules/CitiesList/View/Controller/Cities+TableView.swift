@@ -58,12 +58,14 @@ extension CitiesViewController: UITableViewDelegate {
             toastLabel.showToast(message: Constants.keyWords.noMoreCached,
                                  multiline: true,
                                  image: Constants.Images.noConnectionImage)
+            self.loadingIndecator.stopAnimating()
             
         } else if index == count - 1 {
             let toastLabel = UILabel()
             toastLabel.showToast(message: Constants.keyWords.noMoreSearchResult,
                                  multiline: true,
                                  image: Constants.Images.noConnectionImage)
+            self.loadingIndecator.stopAnimating()
         }
     }
 }

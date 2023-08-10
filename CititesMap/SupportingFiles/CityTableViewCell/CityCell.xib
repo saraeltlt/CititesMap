@@ -20,17 +20,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMZ-2Q-r0j">
                         <rect key="frame" x="16" y="8" width="443" height="276"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_globe" translatesAutoresizingMaskIntoConstraints="NO" id="NKB-mm-Qws">
-                                <rect key="frame" x="8" y="4" width="170.66666666666666" height="268"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_globe" translatesAutoresizingMaskIntoConstraints="NO" id="NKB-mm-Qws">
+                                <rect key="frame" x="16" y="16" width="170.66666666666666" height="244"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-KH-J9E">
-                                <rect key="frame" x="186.66666666666663" y="8" width="248.33333333333337" height="260"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                <rect key="frame" x="202.66666666666663" y="8" width="232.33333333333337" height="260"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -38,11 +38,11 @@
                         <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="y0c-KH-J9E" secondAttribute="trailing" constant="8" id="9FE-2N-xoi"/>
-                            <constraint firstItem="y0c-KH-J9E" firstAttribute="leading" secondItem="NKB-mm-Qws" secondAttribute="trailing" constant="8" id="Q1i-Dk-8LL"/>
+                            <constraint firstItem="y0c-KH-J9E" firstAttribute="leading" secondItem="NKB-mm-Qws" secondAttribute="trailing" constant="16" id="Q1i-Dk-8LL"/>
                             <constraint firstItem="y0c-KH-J9E" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" constant="8" id="fxh-qt-BoU"/>
-                            <constraint firstItem="NKB-mm-Qws" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" constant="4" id="hVa-ii-SBX"/>
-                            <constraint firstAttribute="bottom" secondItem="NKB-mm-Qws" secondAttribute="bottom" constant="4" id="i2K-bP-teR"/>
-                            <constraint firstItem="NKB-mm-Qws" firstAttribute="leading" secondItem="SMZ-2Q-r0j" secondAttribute="leading" constant="8" id="pT8-iF-cvZ"/>
+                            <constraint firstItem="NKB-mm-Qws" firstAttribute="top" secondItem="SMZ-2Q-r0j" secondAttribute="top" constant="16" id="hVa-ii-SBX"/>
+                            <constraint firstAttribute="bottom" secondItem="NKB-mm-Qws" secondAttribute="bottom" constant="16" id="i2K-bP-teR"/>
+                            <constraint firstItem="NKB-mm-Qws" firstAttribute="leading" secondItem="SMZ-2Q-r0j" secondAttribute="leading" constant="16" id="pT8-iF-cvZ"/>
                             <constraint firstItem="NKB-mm-Qws" firstAttribute="width" secondItem="SMZ-2Q-r0j" secondAttribute="width" multiplier="0.385252" id="wxm-KI-EJf"/>
                             <constraint firstAttribute="bottom" secondItem="y0c-KH-J9E" secondAttribute="bottom" constant="8" id="zqk-l7-lsI"/>
                         </constraints>

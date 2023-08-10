@@ -12,8 +12,14 @@ struct Constants {
         static let CitiesBaseURL = "http://assignment.pharos-solutions.de/cities.json?page="
         static let pageSize = 50
         static func getImageAPIEndpoint(lat: String, lon: String) -> String  {
-            return "https://maps.googleapis.com/maps/api/staticmap?center=\(lat),\(lon)&zoom=10&size=120x120&markers=color:red&key=\(mapsImageApiKey)"
+            let baseURL = "https://maps.googleapis.com/maps/api/staticmap"
+            let marker = "markers=color:red%7Clabel:Marker%7C\(lat),\(lon)"
+            let urlString = "\(baseURL)?center=\(lat),\(lon)&zoom=10&size=200x200&\(marker)&key=\(mapsImageApiKey)"
+            
+            // Return the complete URL as a string
+            return urlString
         }
+
     }
 
     struct Images {

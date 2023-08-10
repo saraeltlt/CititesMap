@@ -12,7 +12,7 @@ class CitiesViewController: BaseViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var imagePlaceHolder: UIImageView!
     @IBOutlet private weak var citiesTableView: UITableView!
-    @IBOutlet private weak var loadingIndecator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndecator: UIActivityIndicatorView!
     var citiesViewModel: CitiesViewModel?
     let refreshControl = UIRefreshControl()
     var lastCount = 0
@@ -69,9 +69,12 @@ class CitiesViewController: BaseViewController {
             guard let self = self, let data = isLoading else { return }
             DispatchQueue.main.async {
                 if data == false {
-                    self.loadingIndecator.startAnimating()
+                    DispatchQueue.main.async {
+                        self.loadingIndecator.startAnimating()
+                    }
                 } else {
                     DispatchQueue.main.async {
+                        self.loadingIndecator.stopAnimating()
                         if citiesViewModel.getCitiesCount() == 0 &&
                             !citiesViewModel.isSearching &&
                             !citiesViewModel.isNetworkConnected() {
@@ -79,7 +82,6 @@ class CitiesViewController: BaseViewController {
                             self.imagePlaceHolder.isHidden = false
                         } else {
                             self.imagePlaceHolder.isHidden = true
-                            self.loadingIndecator.stopAnimating()
                             self.citiesTableView.reloadData()
                             self.updateNoSearchResultVisibility()
                         }
