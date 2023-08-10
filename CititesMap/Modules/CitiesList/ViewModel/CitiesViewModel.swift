@@ -11,10 +11,9 @@ class CitiesViewModel {
    // MARK: - variables
     private let repository: CityRepository
     private var citiesArray = [City]()
-   // private var toFilterArray = [City]()
     private var filteredArray = [City]()
-    var isSearching: Bool = false
     private let networkMonitor = NetworkMonitor.shared
+    var isSearching: Bool = false
     let bindCities = Observable(false)
     let bindError = Observable<Error?>(nil)
     let bindSearch = Observable(false)
@@ -40,18 +39,7 @@ class CitiesViewModel {
             }
         }
     }
-    
-   /* func getLocalCities() {
-        repository.fetchCitiesLocal { result in
-            switch result {
-            case .success(let cities):
-                self.toFilterArray = cities
-            case .failure(let error):
-                self.bindError.value = error
-                self.toFilterArray = []
-            }
-        }
-    }*/
+
     // MARK: - Filter Cities
     func filterCities(with searchText: String) {
         if searchText.isEmpty {
@@ -60,7 +48,6 @@ class CitiesViewModel {
          } else {
              isSearching = true
              filteredArray = citiesArray.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-             print ("ANA KEDA 3andy \(filteredArray.count)")
          }
         self.bindCities.value = true
     }

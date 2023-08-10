@@ -8,9 +8,12 @@
 import UIKit
 struct Constants {
     struct EndPoint {
+        private static let mapsImageApiKey = "AIzaSyBoa2g2CFiVhNSA-OreoL5tBEzNc5WLV-U"
         static let CitiesBaseURL = "http://assignment.pharos-solutions.de/cities.json?page="
-        static let mapsImageApiKey = "AIzaSyBoa2g2CFiVhNSA-OreoL5tBEzNc5WLV-U"
         static let pageSize = 50
+        static func getImageAPIEndpoint(lat: String, lon: String) -> String  {
+            return "https://maps.googleapis.com/maps/api/staticmap?center=\(lat),\(lon)&zoom=12&size=100x100&key=\(mapsImageApiKey)"
+        }
     }
 
     struct Images {
@@ -22,7 +25,9 @@ struct Constants {
     struct keyWords {
         static let appName = "Cities Guru"
         static let noConnection = "No internet Connection \n please try again"
-        static let noMoreToShow = "No more cached data to show \n please check your connection"
+        static let invalidURL = "Invalid URL"
+        static let noMoreCached = "No more cached data to show \n please check your connection"
+        static let noMoreSearchResult = "No more loaded cities \n with this search value"
     }
     
     struct Identifiers {

@@ -20,15 +20,16 @@ class CitiesViewController: UIViewController {
     // MARK: - viewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        ConfigureNavigationBar()
-        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource(), localDataSource: LocalSource()))
+        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource.shared,
+                                                                     localDataSource: LocalSource.shared))
+        configureNavigationBar()
         initTableView()
         setupBindings()
         citiesViewModel?.fetchCities()
     }
 
     // MARK: - set logo navigation bar
-    func ConfigureNavigationBar() {
+    func configureNavigationBar() {
         guard let navigationController = navigationController else { return }
         // set logo as left item
         let logoImageView = UIImageView.init(image: Constants.Images.globeImage)

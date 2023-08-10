@@ -6,15 +6,17 @@
 //
 
 import Foundation
-class CityRepository: CityRepositoryProtocol {
-    
+class CityRepository {
+    // MARK: - private variables
     private let remoteDataSource: RemoteSourceProtocol
     private let localDataSource: LocalSourceProtocol
     private let networkMonitor = NetworkMonitor.shared
     private var networkIsConnected = false
     private var citiesArray = [City] ()
     private var currentPage = 0
-    let dispatchGroup = DispatchGroup()
+    private let dispatchGroup = DispatchGroup()
+     
+     // MARK: - initalizer
     init(remoteDataSource: RemoteSourceProtocol, localDataSource: LocalSourceProtocol) {
         self.remoteDataSource = remoteDataSource
         self.localDataSource = localDataSource
@@ -22,7 +24,8 @@ class CityRepository: CityRepositoryProtocol {
             self.networkIsConnected = isConnected
         }
     }
-    
+     
+     // MARK: - get all cities from APi or coredata
     func fetchCities(completion: @escaping (Result<[City], Error>) -> Void) {
         if networkIsConnected {
             var range = currentPage*50
@@ -54,7 +57,7 @@ class CityRepository: CityRepositoryProtocol {
         }
     }
     
-    func cachCities(_ cities: [City]) {
+    private func cachCities(_ cities: [City]) {
         localDataSource.saveCities(cities) { (result: Result<Void, Error>) in
             switch result {
             case .success():
@@ -66,9 +69,9 @@ class CityRepository: CityRepositoryProtocol {
         }
     }
 
-    func getMapImage(index: Int) {
-        remoteDataSource.staticMapURL(latitude: Double(citiesArray[index].coord.lat) ?? 0.0,
-                                      longitude: Double(citiesArray[index].coord.lon) ?? 0.0) { [weak self] (result: Result<Data, Error>) in
+    private func getMapImage(index: Int) {
+        remoteDataSource.staticMapURL(latitude: citiesArray[index].coord.lat,
+                                      longitude: citiesArray[index].coord.lon) { [weak self] (result: Result<Data, Error>) in
             guard let self = self else {return}
             switch result {
             case .success(let data):
@@ -80,7 +83,4 @@ class CityRepository: CityRepositoryProtocol {
             }
         }
     }
-     func fetchCitiesLocal(completion: @escaping (Result<[City], Error>) -> Void) {
-          localDataSource.fetchCities(completion: completion)
-     }
 }

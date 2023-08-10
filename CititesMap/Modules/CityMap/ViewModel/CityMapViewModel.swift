@@ -7,13 +7,15 @@
 
 import Foundation
 class CityMapViewModel {
+    // MARK: - variables
     private var city: City
-    var bindMap:Observable<Bool>=Observable(false)
+    var bindMap = Observable(false)
     
     init(city: City){
         self.city = city
     }
-    
+  
+    // MARK: - Get City Data
     func getCityName() -> String {
         return "\(city.country), \(city.name)"
     }
@@ -22,5 +24,6 @@ class CityMapViewModel {
         let lon = Double (city.coord.lon) ?? 0.0
         return (lat,lon)
     }
+
     
 }

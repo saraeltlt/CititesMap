@@ -14,18 +14,7 @@ extension CitiesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let count = citiesViewModel?.getCitiesCount() ?? 0
-        if indexPath.row == count - 1 && count != lastCount {
-            print("\(count) = \(lastCount)")
-            lastCount = count
-            loadData()
-        } else if indexPath.row == count - 1 {
-            let toastLabel = UILabel()
-            toastLabel.showToast(message: Constants.keyWords.noMoreToShow,
-                                 multiline: true,
-                                 image: Constants.Images.noConnectionImage)
-            
-        }
+        tableDisplayConfig(with: indexPath.row)
     }
     
     // navigate to map
@@ -42,6 +31,26 @@ extension CitiesViewController: UITableViewDelegate {
         cityMapVC.mapViewModel = citiesViewModel.navigateToMap(index: indexPath.row)
         navigationController.pushViewController(cityMapVC, animated: true)
         
+    }
+    
+    
+    private func tableDisplayConfig(with index: Int) {
+        let count = citiesViewModel?.getCitiesCount() ?? 0
+        if index == count - 1 && count != lastCount {
+            lastCount = count
+            loadData()
+        } else if index == count - 1 && !(citiesViewModel?.isSearching ?? true){
+            let toastLabel = UILabel()
+            toastLabel.showToast(message: Constants.keyWords.noMoreCached,
+                                 multiline: true,
+                                 image: Constants.Images.noConnectionImage)
+            
+        } else if index == count - 1 {
+            let toastLabel = UILabel()
+            toastLabel.showToast(message: Constants.keyWords.noMoreSearchResult,
+                                 multiline: true,
+                                 image: Constants.Images.noConnectionImage)
+        }
     }
 }
 

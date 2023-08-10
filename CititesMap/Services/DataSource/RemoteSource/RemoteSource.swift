@@ -7,11 +7,16 @@
 
 import Foundation
 class RemoteSource: RemoteSourceProtocol {
+// MARK: -signletoon object
+    static let shared = RemoteSource()
+    private init(){}
 
+    // MARK: get cities from api page by page
     func fetchAPICities(page: Int, completion: @escaping (Result<[City], Error>) -> Void) {
         let urlString = Constants.EndPoint.CitiesBaseURL + String(page)
         guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
+            completion(.failure(NSError(domain: Constants.keyWords.invalidURL,
+                                        code: -1, userInfo: nil)))
             return
         }
         
@@ -31,10 +36,9 @@ class RemoteSource: RemoteSourceProtocol {
             }
         }.resume()
     }
-    
-    func staticMapURL(latitude: Double, longitude: Double, completion: @escaping (Result<Data, Error>) -> Void) {
-        let urlString = "https://maps.googleapis.com/maps/api/staticmap?center=\(latitude),\(longitude)&zoom=12&size=100x100&key=\(Constants.EndPoint.mapsImageApiKey)"
-        
+    // MARK: get cities maps image
+    func staticMapURL(latitude: String, longitude: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        let urlString = Constants.EndPoint.getImageAPIEndpoint(lat: latitude, lon: longitude)
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, _, error in
                 if let error = error {
@@ -44,7 +48,8 @@ class RemoteSource: RemoteSourceProtocol {
                 }
             }.resume()
         } else {
-            completion(.failure(NSError(domain: "InvalidURL", code: -1, userInfo: nil)))
+            completion(.failure(NSError(domain: Constants.keyWords.invalidURL,
+                                        code: -1, userInfo: nil)))
         }
     }
 

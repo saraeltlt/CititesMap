@@ -13,14 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWindowSceneDelegate {
     
     var window:UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        /*let storyboard = UIStoryboard(name: Constants.Identifiers.CitiesListStroyBoard, bundle: nil)
+        navigateToCitiesList()
+        monitorConnection()
+        return true
+    }
+    // MARK: - Navigate to Cities List
+    private func navigateToCitiesList() {
+        let storyboard = UIStoryboard(name: Constants.Identifiers.CitiesListStroyBoard, bundle: nil)
          let citiesVC = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CitiesVC) as! CitiesViewController
-         citiesVC.citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource(), localDataSource: LocalSource()))
+        let citiesVM = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource.shared, localDataSource: LocalSource.shared))
+        citiesVC.citiesViewModel = citiesVM
          let navigationController = UINavigationController(rootViewController: citiesVC)
-         
          window?.rootViewController = navigationController
-         window?.makeKeyAndVisible()*/
-        
+         window?.makeKeyAndVisible()
+    }
+
+    // MARK: - Monitor Internet connection
+    private func monitorConnection() {
         NetworkMonitor.shared.startMonitoring { isConnected in
             if !isConnected {
                 DispatchQueue.main.async {
@@ -31,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIWindowSceneDelegate {
                 }
             }
         }
-        return true
     }
     
     // MARK: UISceneSession Lifecycle
