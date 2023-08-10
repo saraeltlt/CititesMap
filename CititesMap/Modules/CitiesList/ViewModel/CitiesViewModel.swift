@@ -7,36 +7,48 @@
 
 import Foundation
 class CitiesViewModel {
+
+   // MARK: - variables
     private let repository: CityRepository
-    var citiesArray = [City]()
+    private var citiesArray = [City]()
     let bindCities = Observable(false)
     let bindError = Observable<Error?>(nil)
-    var currentPage = 1
     
     init(repository: CityRepository) {
         self.repository = repository
     }
-    
+
+    // MARK: - Fetch cities from API and save locally
     func fetchCities() {
         bindCities.value = false
-        repository.fetchCities(page: currentPage) { [weak self] result in
+        repository.fetchCities() { [weak self] result in
+            
             guard let self = self else {return}
             switch result {
             case .success(let cities):
-                self.currentPage = self.currentPage+1
+                self.citiesArray = cities
                 self.bindCities.value = true
-                self.citiesArray = self.citiesArray + cities
+
             case .failure(let error):
-                print("Error fetching cities: \(error)")
                 self.bindError.value = error
                 self.bindCities.value = false
             }
         }
     }
-    
-    
+
+    // MARK: - Get city data
+    func getCitiesCount() -> Int {
+        return citiesArray.count
+    }
+
+    func getCityNameAndImage(index: Int) -> (String,Data?) {
+        let cityName = "\(citiesArray[index].country), \(citiesArray[index].name)"
+        let cityMapImage = citiesArray[index].image
+        return (cityName,cityMapImage)
+    }
+
+    // MARK: - Navigate to map view
     func navigateToMap(index: Int) -> CityMapViewModel? {
-        print ("fehhaa \(citiesArray.count)")
         if citiesArray.isEmpty {
             return nil
         } else {
@@ -44,27 +56,4 @@ class CitiesViewModel {
             return CityMapViewModel(city: city)
         }
     }
-    
-    func getCitiesCount() -> Int {
-        return citiesArray.count
-    }
-    func getCityName(index: Int) -> String {
-       return "\(citiesArray[index].country), \(citiesArray[index].name)"
-    }
-    
-    func getCityImage(index: Int, completion: @escaping ((Data?) -> Void)) {
-        let x = RemoteSource()
-        
-        x.staticMapURL(latitude: Double(citiesArray[index].coord.lat) ?? 0.0,
-                       longitude: Double(citiesArray[index].coord.lon) ?? 0.0) { (result: Result<Data, Error>) in
-            switch result {
-            case .success(let data):
-                completion(data)
-            case .failure(let error):
-                print("ERRORRRR \(error)")
-                completion(nil)
-            }
-        }
-    }
-
 }

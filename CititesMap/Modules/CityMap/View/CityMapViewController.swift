@@ -10,7 +10,6 @@ import MapKit
 
 class CityMapViewController: UIViewController {
     // MARK: - Outlits
-    @IBOutlet private weak var cityNameLabel: UILabel!
     @IBOutlet private  weak var cityMapView: MKMapView!
     
     // MARK: - Variable
@@ -32,7 +31,17 @@ class CityMapViewController: UIViewController {
         cityName = mapViewModel.getCityName()
         cityLat = mapViewModel.getCityCoord().0
         cityLon = mapViewModel.getCityCoord().1
-        cityNameLabel.text = cityName
+        setNavigationTitle()
+    }
+    // MARK: - setCityData
+    func setNavigationTitle() {
+        guard let navigationController = navigationController else { return }
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(ciColor: .red),
+            .font: Constants.Dimentions.font,
+        ]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        self.title = cityName
     }
     // MARK: - setMap
     private func setMap() {

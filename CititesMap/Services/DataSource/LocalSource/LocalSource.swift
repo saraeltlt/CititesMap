@@ -13,26 +13,32 @@ class LocalSource: LocalSourceProtocol {
     init () {
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
-func fetchCities(completion: @escaping (Result<[City], Error>) -> Void) {
-    do {
-        let localCities = try context.fetch(LocalCity.fetchRequest())
-        let cities = convertFromLocalCities(localCities)
-        completion(.success(cities))
-    } catch {
-        completion(.failure(error))
+    func fetchCities(completion: @escaping (Result<[City], Error>) -> Void) {
+        let fetchRequest: NSFetchRequest<LocalCity> = LocalCity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "insertionOrder", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let localCities = try context.fetch(fetchRequest)
+            let cities = convertFromLocalCities(localCities)
+            completion(.success(cities))
+        } catch {
+            completion(.failure(error))
+        }
     }
-}
+
 
 func saveCities(_ cities: [City], completion: @escaping (Result<Void, Error>) -> Void) {
     for city in cities {
         convertToLocalCities(city)
+    }
         do {
             try context.save()
             completion(.success(()))
         } catch {
             completion(.failure(error))
         }
-    }
+    
 }
     
     
@@ -57,6 +63,7 @@ func saveCities(_ cities: [City], completion: @escaping (Result<Void, Error>) ->
         localCity.lat = city.coord.lat
         localCity.lon = city.coord.lon
         localCity.image = city.image
+        localCity.insertionOrder = Date()
     }
 
 }

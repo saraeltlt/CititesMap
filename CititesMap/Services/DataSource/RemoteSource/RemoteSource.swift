@@ -9,7 +9,7 @@ import Foundation
 class RemoteSource: RemoteSourceProtocol {
 
     func fetchAPICities(page: Int, completion: @escaping (Result<[City], Error>) -> Void) {
-        let urlString = Constants.CitiesBaseURL + String(page)
+        let urlString = Constants.EndPoint.CitiesBaseURL + String(page)
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
@@ -33,7 +33,7 @@ class RemoteSource: RemoteSourceProtocol {
     }
     
     func staticMapURL(latitude: Double, longitude: Double, completion: @escaping (Result<Data, Error>) -> Void) {
-        let urlString = "https://maps.googleapis.com/maps/api/staticmap?center=\(latitude),\(longitude)&zoom=12&size=100x100&key=\(Constants.mapsImageApiKey)"
+        let urlString = "https://maps.googleapis.com/maps/api/staticmap?center=\(latitude),\(longitude)&zoom=12&size=100x100&key=\(Constants.EndPoint.mapsImageApiKey)"
         
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, _, error in

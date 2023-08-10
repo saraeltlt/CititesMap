@@ -22,6 +22,7 @@ extension LocalCity {
     @NSManaged public var lat: String?
     @NSManaged public var lon: String?
     @NSManaged public var image: Data?
+    @NSManaged public var insertionOrder: Date?
 
 }
 

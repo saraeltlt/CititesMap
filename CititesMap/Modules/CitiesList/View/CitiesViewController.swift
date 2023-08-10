@@ -15,65 +15,68 @@ class CitiesViewController: UIViewController {
     @IBOutlet private weak var loadingIndecator: UIActivityIndicatorView!
     var citiesViewModel: CitiesViewModel?
     let refreshControl = UIRefreshControl()
+    var lastCount = 0
     
     // MARK: - viewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let core = LocalSource()
-        let city = City(country: "test", name: "test1", id: "123", coord: Coord(lon: "45.0", lat: "60.0"), image: Data())
-        core.saveCities([city]) { result in
-            switch result {
-            case .success:
-                print("City saved successfully.")
-                // Fetch cities using fetchCities function
-                core.fetchCities { result in
-                    switch result {
-                    case .success(let cities):
-                        print("Fetched cities: \(cities)")
-                    case .failure(let error):
-                        print("Error fetching cities: \(error)")
-                    }
-                }
-                
-            case .failure(let error):
-                print("Error saving city: \(error)")
-            }
-        }
-        
-       citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource(), localDataSource: LocalSource()))
+        ConfigureNavigationBar()
+        citiesViewModel = CitiesViewModel(repository: CityRepository(remoteDataSource: RemoteSource(), localDataSource: LocalSource()))
         initTableView()
         setupBindings()
         citiesViewModel?.fetchCities()
     }
-    
+
+    // MARK: - set logo navigation bar
+    func ConfigureNavigationBar() {
+        guard let navigationController = navigationController else { return }
+        // set logo as left item
+        let logoImageView = UIImageView.init(image: Constants.Images.globeImage)
+        logoImageView.frame = Constants.Dimentions.logoFrame
+        logoImageView.contentMode = .scaleAspectFit
+        let imageItem = UIBarButtonItem.init(customView: logoImageView)
+        let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: Constants.Dimentions.logoWidth)
+        let heightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: Constants.Dimentions.logoHeight)
+        heightConstraint.isActive = true
+        widthConstraint.isActive = true
+        navigationItem.leftBarButtonItem =  imageItem
+       
+        //set attributed title
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(ciColor: .red),
+            .font: Constants.Dimentions.font,
+        ]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        self.title = Constants.keyWords.appName
+    }
     // MARK: - initalize table view
     private func  initTableView() {
-         let nib = UINib(nibName: Constants.Identifiers.cityCell, bundle: nil)
-         citiesTableView.register(nib, forCellReuseIdentifier: Constants.Identifiers.cityCell)
+        let nib = UINib(nibName: Constants.Identifiers.cityCell, bundle: nil)
+        citiesTableView.register(nib, forCellReuseIdentifier: Constants.Identifiers.cityCell)
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         citiesTableView.refreshControl = refreshControl
-     }
-
+    }
+    
     @objc func loadData() {
         citiesViewModel?.fetchCities()
         refreshControl.endRefreshing()
     }
-
+    
     // MARK: - set up binding
     private func setupBindings() {
         guard let citiesViewModel = citiesViewModel else { return }
         citiesViewModel.bindCities.bind({ [weak self] isLoading in
             guard let self = self, let data = isLoading else { return }
-                DispatchQueue.main.async {
-                    if data == false {
-                        self.loadingIndecator.startAnimating()
-                    } else {
-                        DispatchQueue.main.async {
-                            self.loadingIndecator.stopAnimating()
-                            self.citiesTableView.reloadData()
-                        }
+            DispatchQueue.main.async {
+                if data == false {
+                    self.loadingIndecator.startAnimating()
+                } else {
+                    DispatchQueue.main.async {
+                        self.loadingIndecator.stopAnimating()
+                        self.citiesTableView.reloadData()
                     }
                 }
+            }
         })
     }
     
@@ -88,10 +91,10 @@ extension CitiesViewController: UISearchBarDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.resignFirstResponder()
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //perform search
         print("perform search with \(searchText)")
     }
-
+    
 }
