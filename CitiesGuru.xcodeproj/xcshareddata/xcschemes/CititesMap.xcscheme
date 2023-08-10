@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F29213F2A82E5AE002BFDFF"
-               BuildableName = "CititesMap.app"
-               BlueprintName = "CititesMap"
-               ReferencedContainer = "container:CititesMap.xcodeproj">
+               BuildableName = "CitiesGuru.app"
+               BlueprintName = "CitiesGuru"
+               ReferencedContainer = "container:CitiesGuru.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F2921582A82E5B1002BFDFF"
-               BuildableName = "CititesMapTests.xctest"
-               BlueprintName = "CititesMapTests"
-               ReferencedContainer = "container:CititesMap.xcodeproj">
+               BuildableName = "CitiesGuruTests.xctest"
+               BlueprintName = "CitiesGuruTests"
+               ReferencedContainer = "container:CitiesGuru.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +46,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F2921622A82E5B1002BFDFF"
-               BuildableName = "CititesMapUITests.xctest"
-               BlueprintName = "CititesMapUITests"
-               ReferencedContainer = "container:CititesMap.xcodeproj">
+               BuildableName = "CitiesGuruUITests.xctest"
+               BlueprintName = "CitiesGuruUITests"
+               ReferencedContainer = "container:CitiesGuru.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F29213F2A82E5AE002BFDFF"
-            BuildableName = "CititesMap.app"
-            BlueprintName = "CititesMap"
-            ReferencedContainer = "container:CititesMap.xcodeproj">
+            BuildableName = "CitiesGuru.app"
+            BlueprintName = "CitiesGuru"
+            ReferencedContainer = "container:CitiesGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F29213F2A82E5AE002BFDFF"
-            BuildableName = "CititesMap.app"
-            BlueprintName = "CititesMap"
-            ReferencedContainer = "container:CititesMap.xcodeproj">
+            BuildableName = "CitiesGuru.app"
+            BlueprintName = "CitiesGuru"
+            ReferencedContainer = "container:CitiesGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

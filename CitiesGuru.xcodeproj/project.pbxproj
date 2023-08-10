@@ -57,16 +57,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8F2921402A82E5AE002BFDFF /* CititesMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CititesMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2921402A82E5AE002BFDFF /* CitiesGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitiesGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2921432A82E5AE002BFDFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F2921452A82E5AE002BFDFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8F29214D2A82E5AE002BFDFF /* CititesMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CititesMap.xcdatamodel; sourceTree = "<group>"; };
 		8F29214F2A82E5B0002BFDFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F2921522A82E5B0002BFDFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F2921542A82E5B0002BFDFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F2921592A82E5B1002BFDFF /* CititesMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CititesMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2921592A82E5B1002BFDFF /* CitiesGuruTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitiesGuruTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F29215D2A82E5B1002BFDFF /* CititesMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesMapTests.swift; sourceTree = "<group>"; };
-		8F2921632A82E5B1002BFDFF /* CititesMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CititesMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2921632A82E5B1002BFDFF /* CitiesGuruUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitiesGuruUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2921672A82E5B1002BFDFF /* CititesMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesMapUITests.swift; sourceTree = "<group>"; };
 		8F2921692A82E5B1002BFDFF /* CititesMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F29217B2A82E63A002BFDFF /* RemoteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSource.swift; sourceTree = "<group>"; };
@@ -173,9 +173,9 @@
 		8F2921412A82E5AE002BFDFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F2921402A82E5AE002BFDFF /* CititesMap.app */,
-				8F2921592A82E5B1002BFDFF /* CititesMapTests.xctest */,
-				8F2921632A82E5B1002BFDFF /* CititesMapUITests.xctest */,
+				8F2921402A82E5AE002BFDFF /* CitiesGuru.app */,
+				8F2921592A82E5B1002BFDFF /* CitiesGuruTests.xctest */,
+				8F2921632A82E5B1002BFDFF /* CitiesGuruUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,9 +377,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F29213F2A82E5AE002BFDFF /* CititesMap */ = {
+		8F29213F2A82E5AE002BFDFF /* CitiesGuru */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F29216D2A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMap" */;
+			buildConfigurationList = 8F29216D2A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuru" */;
 			buildPhases = (
 				8F29213C2A82E5AE002BFDFF /* Sources */,
 				8F29213D2A82E5AE002BFDFF /* Frameworks */,
@@ -389,14 +389,14 @@
 			);
 			dependencies = (
 			);
-			name = CititesMap;
+			name = CitiesGuru;
 			productName = CititesMap;
-			productReference = 8F2921402A82E5AE002BFDFF /* CititesMap.app */;
+			productReference = 8F2921402A82E5AE002BFDFF /* CitiesGuru.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8F2921582A82E5B1002BFDFF /* CititesMapTests */ = {
+		8F2921582A82E5B1002BFDFF /* CitiesGuruTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F2921702A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMapTests" */;
+			buildConfigurationList = 8F2921702A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuruTests" */;
 			buildPhases = (
 				8F2921552A82E5B1002BFDFF /* Sources */,
 				8F2921562A82E5B1002BFDFF /* Frameworks */,
@@ -407,14 +407,14 @@
 			dependencies = (
 				8F29215B2A82E5B1002BFDFF /* PBXTargetDependency */,
 			);
-			name = CititesMapTests;
+			name = CitiesGuruTests;
 			productName = CititesMapTests;
-			productReference = 8F2921592A82E5B1002BFDFF /* CititesMapTests.xctest */;
+			productReference = 8F2921592A82E5B1002BFDFF /* CitiesGuruTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8F2921622A82E5B1002BFDFF /* CititesMapUITests */ = {
+		8F2921622A82E5B1002BFDFF /* CitiesGuruUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F2921732A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMapUITests" */;
+			buildConfigurationList = 8F2921732A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuruUITests" */;
 			buildPhases = (
 				8F29215F2A82E5B1002BFDFF /* Sources */,
 				8F2921602A82E5B1002BFDFF /* Frameworks */,
@@ -425,9 +425,9 @@
 			dependencies = (
 				8F2921652A82E5B1002BFDFF /* PBXTargetDependency */,
 			);
-			name = CititesMapUITests;
+			name = CitiesGuruUITests;
 			productName = CititesMapUITests;
-			productReference = 8F2921632A82E5B1002BFDFF /* CititesMapUITests.xctest */;
+			productReference = 8F2921632A82E5B1002BFDFF /* CitiesGuruUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -453,7 +453,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8F29213B2A82E5AD002BFDFF /* Build configuration list for PBXProject "CititesMap" */;
+			buildConfigurationList = 8F29213B2A82E5AD002BFDFF /* Build configuration list for PBXProject "CitiesGuru" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -466,9 +466,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8F29213F2A82E5AE002BFDFF /* CititesMap */,
-				8F2921582A82E5B1002BFDFF /* CititesMapTests */,
-				8F2921622A82E5B1002BFDFF /* CititesMapUITests */,
+				8F29213F2A82E5AE002BFDFF /* CitiesGuru */,
+				8F2921582A82E5B1002BFDFF /* CitiesGuruTests */,
+				8F2921622A82E5B1002BFDFF /* CitiesGuruUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -554,12 +554,12 @@
 /* Begin PBXTargetDependency section */
 		8F29215B2A82E5B1002BFDFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8F29213F2A82E5AE002BFDFF /* CititesMap */;
+			target = 8F29213F2A82E5AE002BFDFF /* CitiesGuru */;
 			targetProxy = 8F29215A2A82E5B1002BFDFF /* PBXContainerItemProxy */;
 		};
 		8F2921652A82E5B1002BFDFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8F29213F2A82E5AE002BFDFF /* CititesMap */;
+			target = 8F29213F2A82E5AE002BFDFF /* CitiesGuru */;
 			targetProxy = 8F2921642A82E5B1002BFDFF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -762,7 +762,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CititesMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CititesMap";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CitiesGuru.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CitiesGuru";
 			};
 			name = Debug;
 		};
@@ -782,7 +782,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CititesMap.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CititesMap";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CitiesGuru.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CitiesGuru";
 			};
 			name = Release;
 		};
@@ -825,7 +825,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F29213B2A82E5AD002BFDFF /* Build configuration list for PBXProject "CititesMap" */ = {
+		8F29213B2A82E5AD002BFDFF /* Build configuration list for PBXProject "CitiesGuru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F29216B2A82E5B1002BFDFF /* Debug */,
@@ -834,7 +834,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F29216D2A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMap" */ = {
+		8F29216D2A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F29216E2A82E5B1002BFDFF /* Debug */,
@@ -843,7 +843,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F2921702A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMapTests" */ = {
+		8F2921702A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuruTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F2921712A82E5B1002BFDFF /* Debug */,
@@ -852,7 +852,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F2921732A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CititesMapUITests" */ = {
+		8F2921732A82E5B1002BFDFF /* Build configuration list for PBXNativeTarget "CitiesGuruUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F2921742A82E5B1002BFDFF /* Debug */,
