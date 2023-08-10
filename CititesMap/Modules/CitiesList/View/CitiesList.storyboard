@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cities list-->
+        <!--Cities-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="CitiesViewController" id="Y6W-OH-hqX" customClass="CitiesViewController" customModule="CititesMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0iN-WV-Qev">
-                                <rect key="frame" x="8" y="183" width="393" height="627"/>
-                            </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KPu-RT-xXA">
                                 <rect key="frame" x="8" y="111" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -38,26 +35,32 @@
                                 <rect key="frame" x="178" y="435.66666666666669" width="37" height="37"/>
                                 <color key="color" systemColor="systemRedColor"/>
                             </activityIndicatorView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0iN-WV-Qev">
+                                <rect key="frame" x="64" y="119" width="265" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0iN-WV-Qev" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="7t4-fZ-SYd"/>
+                            <constraint firstItem="0iN-WV-Qev" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="64" id="7t4-fZ-SYd"/>
                             <constraint firstItem="Qq7-Wl-CK9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="28" id="Beu-ZK-8rF"/>
                             <constraint firstItem="KPu-RT-xXA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="D0X-za-BKE"/>
                             <constraint firstItem="Qq7-Wl-CK9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="L2L-v8-djY"/>
                             <constraint firstAttribute="bottom" secondItem="16A-TL-2GM" secondAttribute="bottom" id="Lgl-5j-Ra2"/>
-                            <constraint firstItem="0iN-WV-Qev" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="PSa-jJ-vjA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0iN-WV-Qev" secondAttribute="bottom" constant="8" id="SnM-uM-Ewd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0iN-WV-Qev" secondAttribute="trailing" constant="64" id="R5y-Wd-mJW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0iN-WV-Qev" secondAttribute="bottom" constant="32" id="SnM-uM-Ewd"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eNu-mU-HNL"/>
                             <constraint firstItem="KPu-RT-xXA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="fc2-yB-Ure"/>
                             <constraint firstItem="KPu-RT-xXA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="gO8-7t-Isv"/>
-                            <constraint firstItem="0iN-WV-Qev" firstAttribute="top" secondItem="KPu-RT-xXA" secondAttribute="bottom" constant="16" id="j0y-sC-JiF"/>
+                            <constraint firstItem="0iN-WV-Qev" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="j0y-sC-JiF"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="top" secondItem="KPu-RT-xXA" secondAttribute="bottom" id="m5L-WD-W1u"/>
                             <constraint firstItem="16A-TL-2GM" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xbT-bK-ImE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cities list" id="KwI-w8-UwR"/>
+                    <navigationItem key="navigationItem" title="Cities" id="KwI-w8-UwR">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qnK-lp-kFd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="citiesTableView" destination="16A-TL-2GM" id="Fi6-aI-kJe"/>
                         <outlet property="imagePlaceHolder" destination="0iN-WV-Qev" id="nqv-wa-RaG"/>
@@ -88,6 +91,7 @@
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemRedColor"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

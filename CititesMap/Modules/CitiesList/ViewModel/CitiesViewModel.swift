@@ -11,6 +11,7 @@ class CitiesViewModel {
    // MARK: - variables
     private let repository: CityRepository
     private var citiesArray = [City]()
+    private let networkMonitor = NetworkMonitor.shared
     let bindCities = Observable(false)
     let bindError = Observable<Error?>(nil)
     
@@ -55,5 +56,10 @@ class CitiesViewModel {
             let city = citiesArray[index]
             return CityMapViewModel(city: city)
         }
+    }
+    
+    // MARK: - Get network Status
+    func isNetworkConnected() -> Bool {
+       return networkMonitor.isConnected
     }
 }

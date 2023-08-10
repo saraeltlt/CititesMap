@@ -25,13 +25,16 @@ class CityRepository: CityRepositoryProtocol {
     
     func fetchCities(completion: @escaping (Result<[City], Error>) -> Void) {
         if networkIsConnected {
-            let range = currentPage*50
+            var range = currentPage*50
             currentPage+=1
             remoteDataSource.fetchAPICities(page: currentPage) { [weak self] result in
                 guard let self = self else {return}
                 switch result {
                 case .success(let cities):
                     self.citiesArray = self.citiesArray + cities
+                     if range >= self.citiesArray.count {
+                          range = 0
+                     }
                     for i in range...(citiesArray.count - 1) {
                         dispatchGroup.enter()
                         self.getMapImage(index: i)

@@ -72,8 +72,16 @@ class CitiesViewController: UIViewController {
                     self.loadingIndecator.startAnimating()
                 } else {
                     DispatchQueue.main.async {
-                        self.loadingIndecator.stopAnimating()
-                        self.citiesTableView.reloadData()
+                        if citiesViewModel.getCitiesCount() == 0 && !citiesViewModel.isNetworkConnected() {
+                            self.imagePlaceHolder.image = Constants.Images.noConnectionImage
+                            self.imagePlaceHolder.isHidden = false
+                            self.searchBar.isHidden = true
+                        } else {
+                            self.imagePlaceHolder.isHidden = true
+                            self.searchBar.isHidden = false
+                            self.loadingIndecator.stopAnimating()
+                            self.citiesTableView.reloadData()
+                        }
                     }
                 }
             }
